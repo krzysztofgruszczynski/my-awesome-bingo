@@ -1,11 +1,27 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-accent: #2563eb;
-  --color-accent-light: #3b82f6;
+  /* Coffee-shop palette */
+  --color-espresso: #1a0a04;
+  --color-roast: #3d1f0d;
+  --color-mocha: #7b4a35;
+  --color-latte: #c8a882;
+  --color-parchment: #f5edd6;
+  --color-cream: #fff8ec;
+
+  /* Accent — warm amber */
+  --color-accent: #c27a0a;
+  --color-accent-light: #d99a1b;
+  --color-accent-glow: #fde68a;
+
+  /* Game board */
   --color-marked: #dcfce7;
   --color-marked-border: #22c55e;
   --color-bingo: #fbbf24;
+
+  /* Typography */
+  --font-display: 'Caveat', cursive;
+  --font-body: 'Lora', serif;
 }
 
 html,
@@ -18,4 +34,59 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Keyframe animations ──────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes steam {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0) scaleX(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translateY(-8px) scaleX(1.2);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes cardFan {
+  from {
+    opacity: 0;
+    transform: translateY(16px) translateX(0) rotate(0deg) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(var(--card-tx, 0px)) rotate(var(--card-rotate, 0deg)) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
